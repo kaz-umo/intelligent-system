@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>TextAnalitica — Интеллектуальный анализ текста</title>
+    </head>
+    <body>
+        <h1>TextAnalitica — Интеллектуальный анализ текста</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="text" rows="10" cols="80">{{ text }}</textarea
+            ><br />
+            <button type="submit">Анализировать</button>
+        </form>
+
+        {% if text %}
+        <h2>Результаты анализа:</h2>
+        <p><strong>Всего слов:</strong> {{ total_words }}</p>
+        <p><strong>Уникальных слов:</strong> {{ unique_words }}</p>
+        <p><strong>Символов:</strong> {{ characters }}</p>
+        <p><strong>Тональность (Polarity):</strong> {{ polarity }}</p>
+        <p><strong>Субъективность:</strong> {{ subjectivity }}</p>
+        <h3>Наиболее частые слова:</h3>
+        <ul>
+            {% for word, freq in most_common %}
+            <li>{{ word }} — {{ freq }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>

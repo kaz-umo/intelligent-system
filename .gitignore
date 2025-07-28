@@ -1,0 +1,106 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+env/
+venv/
+ENV*/
+.venv/
+
+# Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# pipenv, poetry, pip-tools
+Pipfile.lock
+poetry.lock
+requirements*.txt
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+local_settings.py
+.env
+.env.*
+
+# NLTK / spaCy / models cache
+nltk_data/
+spacy_data/
+*.model
+*.h5
+*.pkl
+
+# VS Code / PyCharm
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# macOS
+.DS_Store
+
+# Windows
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Jupyter / matplotlib
+.ipynb_checkpoints/
+__results__/
+*.png
+*.svg
+*.pdf
+
+# Heroku
+*.sqlite3
+Procfile
+
+# Custom for TextAnalitica
+logs/
+data/
+output/
+uploads/
+debug.log
+.analyzer_cache/
