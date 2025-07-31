@@ -6,9 +6,18 @@ from nltk.corpus import stopwords
 from collections import Counter
 from textblob import TextBlob
 
-# Убедись, что все нужные ресурсы загружены
-nltk.download('punkt')
-nltk.download('stopwords')
+# Загрузка необходимых данных NLTK
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
+# View для анализа текста
 def upload_text(request):
     input_text = ""
     total_words = 0
@@ -16,11 +25,12 @@ def upload_text(request):
     total_characters = 0
     word_freq = []
     sentiment = None
+    unique_words_count = 0
 
     if request.method == 'POST':
-        input_text = request.POST.get('text', '')
+        input_text = request.POST.get('text', '').strip()
 
-        if input_text.strip():  # проверка, что текст не пустой
+        if input_text:
             tokens = word_tokenize(input_text)
             words = [word.lower() for word in tokens if word.isalpha()]
 
@@ -30,6 +40,7 @@ def upload_text(request):
             total_words = len(words)
             total_filtered_words = len(filtered_words)
             total_characters = len(input_text)
+            unique_words_count = len(set(filtered_words))
 
             word_freq = Counter(filtered_words).most_common(10)
 
@@ -39,9 +50,13 @@ def upload_text(request):
     return render(request, 'analyzer/upload.html', {
         'text': input_text,
         'total_words': total_words,
-        'unique_words': len(set(filtered_words)) if input_text.strip() else 0,
+        'unique_words': unique_words_count,
         'most_common': word_freq,
         'characters': total_characters,
         'polarity': sentiment.polarity if sentiment else None,
         'subjectivity': sentiment.subjectivity if sentiment else None,
     })
+
+# Новый view для страницы с ракетой
+def rocket_view(request):
+    return render(request, 'analyzer/rocket.html')

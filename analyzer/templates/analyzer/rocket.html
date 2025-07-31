@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Welcome to TextAnalitica!</title>
+        <style>
+            body {
+                text-align: center;
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding-top: 50px;
+            }
+            .rocket {
+                font-size: 100px;
+            }
+            .button {
+                margin-top: 30px;
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                text-decoration: none;
+            }
+            .button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="rocket">🚀</div>
+        <h1>🚀 Welcome to TextAnalitica</h1>
+        <p>Click below to start analyzing your text!</p>
+        <form action="{% url 'upload_text' %}" method="get">
+            <button type="submit">Go to Text Analyzer</button>
+        </form>
+    </body>
+</html>
