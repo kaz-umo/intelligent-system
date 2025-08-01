@@ -1,2 +1,2 @@
-web: gunicorn Django_VS_Heroku.wsgi
+web: gunicorn myproject.wsgi
 

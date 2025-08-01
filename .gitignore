@@ -30,7 +30,6 @@ var/
 # pipenv, poetry, pip-tools
 Pipfile.lock
 poetry.lock
-requirements*.txt
 
 # MyPy
 .mypy_cache/
