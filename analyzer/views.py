@@ -17,6 +17,11 @@ try:
 except LookupError:
     nltk.download('stopwords')
 
+import nltk
+nltk.download('punkt', download_dir='/app/nltk_data')
+nltk.download('stopwords', download_dir='/app/nltk_data')
+nltk.data.path.append('/app/nltk_data')
+
 # View для анализа текста
 def upload_text(request):
     input_text = ""
